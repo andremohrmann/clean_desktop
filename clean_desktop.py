@@ -5,6 +5,7 @@
 import os
 from datetime import date
 from os import listdir
+import time
 
 desktop = os.getenv('USERPROFILE') + '\\' + 'Desktop'
 clean_dir = desktop + '\\' + 'clean_desktop'
@@ -39,3 +40,4 @@ for file in desktopfiles:
         print('Moving "' + file + '" to "' + conflicts_dir + '".')
         os.rename(desktop + "\\" + file, conflicts_dir + '\\' + file)
 print('All files and folders moved to "' + last_week_dir + '\\". Enjoy your clean desktop :)')
+time.sleep(3)
