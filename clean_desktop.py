@@ -10,7 +10,7 @@ desktop = os.getenv('USERPROFILE') + '\\' + 'Desktop'
 clean_dir = desktop + '\\' + 'clean_desktop'
 last_week = date.today().isocalendar()[1]-1
 last_week_dir = clean_dir + '\\' + str(last_week)
-never_move = ['clean_desktop', 'desktop.ini', 'Trackjack41.lnk', 'Tools.lnk']  # Exclude these files and folders
+never_move = ['clean_desktop', 'desktop.ini', 'Tools.lnk']  # Exclude these files and folders
 
 if not os.path.exists(clean_dir):
     print('Creating "' + clean_dir + '" to store files in.')
