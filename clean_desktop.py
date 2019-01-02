@@ -7,22 +7,41 @@ from datetime import datetime, timedelta
 from os import listdir
 import time
 
-desktop = os.getenv('USERPROFILE') + '\\' + 'Desktop'
-clean_dir = desktop + '\\' + 'clean_desktop'
 last_week_date = datetime.now() - timedelta(days=6)
 last_week = last_week_date.isocalendar()[1]
-last_week_dir = clean_dir + '\\' + str(last_week)
+year = last_week_date.year
+print(year)
+print('pause1')
+os.system("pause")
+
+desktop = os.getenv('USERPROFILE') + '\\' + 'Desktop'
+clean_dir = desktop + '\\' + 'clean_desktop'
+last_week_dir = clean_dir + '\\' + str(year) + '\\' + str(last_week)
+
 never_move = ['clean_desktop', 'desktop.ini', 'Tools.lnk']  # Exclude these files and folders
 
 if not os.path.exists(clean_dir):
     print('Creating "' + clean_dir + '" to store files in.')
     os.makedirs(clean_dir)
+    print('pause2')
+    os.system("pause")
+
+if not os.path.exists(clean_dir + '\\' + str(year)):
+    print('Creating "' + clean_dir + '\\' + str(year) + '" to store files in.')
+    os.makedirs(clean_dir + '\\' + str(year))
+    print('pause3')
+    os.system("pause")
 
 if not os.path.exists(last_week_dir):
     print('Creating folder for last week (Week: ' + str(last_week) + ').')
     os.makedirs(last_week_dir)
+    print('pause3')
+    os.system("pause")
 
 desktopfiles = listdir(desktop)  # Get all files and folders from desktop
+print(desktopfiles)
+print('pause4')
+os.system("pause")
 
 # Tamper with the list to exclude things we don't want to move
 for file in never_move:
