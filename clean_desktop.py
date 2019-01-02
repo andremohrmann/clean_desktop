@@ -3,13 +3,14 @@
 ###############################################################################
 
 import os
-from datetime import date
+from datetime import datetime, timedelta
 from os import listdir
 import time
 
 desktop = os.getenv('USERPROFILE') + '\\' + 'Desktop'
 clean_dir = desktop + '\\' + 'clean_desktop'
-last_week = date.today().isocalendar()[1]-1
+last_week_date = datetime.now() - timedelta(days=6)
+last_week = last_week_date.isocalendar()[1]
 last_week_dir = clean_dir + '\\' + str(last_week)
 never_move = ['clean_desktop', 'desktop.ini', 'Tools.lnk']  # Exclude these files and folders
 
